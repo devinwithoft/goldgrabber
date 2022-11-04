@@ -1,0 +1,18 @@
+.img-gold {
+    height: 30vh;
+    width: 40vw;
+}
+
+
+.char-img {
+    height: 10vh;
+    width: 6vw;
+}
+
+.itemoff {
+    display: none;
+}
+
+.itemon {
+    display: block;
+}
