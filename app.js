@@ -111,7 +111,6 @@ function drawGold() {
     if (finalgold >= 20000) {
         document.getElementById("endworldbtn").style.display = "block"
     }
-    console.log(finalgold)
 }
 
 function unlockCharacter(X) {
@@ -171,13 +170,13 @@ function setplayericon() {
     }
     switch (icon) {
         case "cat": document.getElementById("playericon").innerHTML = `<img src="https://i.pinimg.com/originals/5a/2c/a7/5a2ca7ddaa861395c06246a23a9b58dd.jpg" class="char-img img-fluid"></img>`
-            document.getElementById("playerflavor").innerText = "cool cats dont capitilize "
+            document.getElementById("playerflavor").innerText = "cool cats dont capitilize 'c's they capitilize gs "
             break
         case "Cat": document.getElementById("playericon").innerHTML = `<img src="https://petcostumecenter.com/wp-content/uploads/2020/05/580413_PS_PAW_BILL_SUIT-scaled-650x711.jpg" class="char-img img-fluid"></img>`
             document.getElementById("playerflavor").innerText = "I ran out of clever ideas"
             break
         case "dog": document.getElementById("playericon").innerHTML = `<img src="http://mydogiscool.com/wp-content/uploads/2014/06/cool-dog-horiz.jpg" class="char-img img-fluid"></img>`
-            document.getElementById("playerflavor").innerText = "you look ruff"
+            document.getElementById("playerflavor").innerText = "cool dogs dont play fetch, they ARE fetch"
             break
         case "Dog": document.getElementById("playericon").innerHTML = `<img src="https://img.freepik.com/premium-photo/dog-dressed-business-suit_114106-1022.jpg?w=740" class="char-img img-fluid"></img>`
             document.getElementById("playerflavor").innerText = "...attorney at Paw"
