@@ -16,7 +16,7 @@ let characters = [
     {
         name: 'accountant',
         price: 2000,
-        quantity: 1,
+        quantity: 0,
         multiplier: 20,
         duration: 3000,
     },
@@ -36,7 +36,7 @@ let characters = [
     }
 ]
 
-let gold = 66656
+let gold = 300000
 
 function grabGold() {
     gold++
@@ -61,7 +61,12 @@ function pyrGold() {
 
 function beeGold() {
     let b = characters.find(b => b.name == "Beelzebub")
-    gold -= b.quantity * b.multiplier
+    let fate = Math.round(Math.random())
+    if (fate == 1) {
+        gold += b.quantity * b.multiplier
+    } else {
+        gold -= b.quantity * b.multiplier
+    }
     drawGold()
 }
 
@@ -70,7 +75,7 @@ function buyUpgrade(X) {
     if (gold >= itembought.price) {
         gold -= itembought.price,
             itembought.quantity++
-        itembought.price = Math.ceil(itembought.price + (itembought.price * .2))
+        itembought.price = Math.round(itembought.price + (itembought.price * .1))
         document.getElementById(`${X}price`).innerText = itembought.price
         drawGold()
         document.getElementById(`${X}count`).style.display = "block"
@@ -89,44 +94,39 @@ function buyUpgrade(X) {
 
 
 function drawGold() {
+    gold = Math.round(gold)
     document.getElementById("goldcount").innerText = gold
-    if (gold >= 6666) {
-        document.getElementById('charBeelzebubbtn').style.display = "block"
+    if (gold >= 1) {
+        document.getElementById('charBeelzebubbtn').innerHTML = `<section class="row">
+        <div class="col-7 btn btn-warning" onclick="unlockCharacter('Beelzebub')">
+            <h5>UNLOCK X</h5>
+            explain x stats here
+        </div>
+    </section>`
     }
 }
 
 function unlockCharacter(X) {
     let charbought = characters.find(c => c.name == X)
     if (gold >= charbought.price) {
+        debugger
         gold -= charbought.price
         charbought.quantity++
-        charbought.price += (charbought.price * .15)
-        switch (X) {
-            case 'accountant':
-                clearInterval(setInterval(accGold, charbought.duration))
-                setInterval(accGold, charbought.duration)
-                break
-            case 'pyramid-scheme':
-                clearInterval(pyrGold)
-                setInterval(pyrGold, charbought.duration)
-                break
-            case 'Beelzebub':
-                clearInterval(beeGold)
-                setInterval(beeGold, 2000)
-                break
-        }
+        charbought.price += Math.round(charbought.price * .1)
         drawGold()
         document.getElementById(`char${X}card`).style.display = "block"
         document.getElementById(`${X}count`).style.display = "block"
         document.getElementById(`char${X}btn`).style.display = "none"
-        document.getElementById(`${X}stat`).innerHTML = (charbought.quantity * charbought.multiplier)
         let totalClick = 0
-        let enabledcharacters = characters.filter(c => c.quantity >= 1)
+        let enabledcharacters = characters.filter(c => c.quantity >= 1 && c.name != "Beelzebub")
         enabledcharacters.forEach(e => totalClick += Math.round((e.quantity * e.multiplier) / (e.duration / 1000)))
         document.getElementById('totalgps').innerText = totalClick
-        document.getElementById('charstats').style.display = "block"
-        document.getElementById('charbonus').style.display = "block"
-        document.getElementById(`${X}upgrade`).innerText = charbought.price
+        if (charbought.name != 'Beelzebub') {
+            document.getElementById('charstats').style.display = "block"
+            document.getElementById(`${X}stat`).innerHTML = (charbought.quantity * charbought.multiplier)
+            document.getElementById('charbonus').style.display = "block"
+            document.getElementById(`${X}upgrade`).innerText = charbought.price
+        }
     } else { alert("no bueno") }
 }
 
@@ -139,3 +139,7 @@ function stopinterval(X) {
 }
 
 setInterval(accGold, 3000)
+setInterval(pyrGold, 12000)
+setInterval(beeGold, 1000)
+function test() { console.log(Math.round(Math.random() + 1)) }
+
