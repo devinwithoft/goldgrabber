@@ -38,3 +38,11 @@
     background-repeat: none;
 
 }
+
+#pile:hover {
+    cursor: grab;
+}
+
+#pile:active {
+    cursor: grabbing;
+}
