@@ -13,12 +13,12 @@
 </head>
 
 <body>
-    <main class="bg-secondary container-fluid">
+    <main class="bg-dungeon container-fluid" id="earth">
         <!-- SECTION TITLE & TAG LINE? -->
         <!-- TODO FIX SPACING / MARGIN -->
         <section class="row justify-content-center text-center text-light">
             <div class="col-10">
-                <h1>GOLD GRABBERS</h1>
+                <h1 class="big-text">GOLD GRABBERS</h1>
             </div>
             <div class="col-10">Click to grab gold!</div>
         </section>
@@ -36,14 +36,12 @@
                     <div class="fs-4 itemoff" id="wheelbarrowcount"><i class="mdi mdi-wheel-barrow"></i>: +<span
                             id="wheelbarrowstat">0</span>
                     </div>
-                    <!-- TODO FIX STYLING HERE -->
-                    <div class="fs-3 fw-bold mb-2">Total Gold on Click: <span id="clickpower">1</div>
+                    <!-- SECTION STATS-->
+                    <div class="fs-3 mb-2"><span class="fw-bold">Total Gold on Click: </span><span id="clickpower">1
+                    </div>
                     <span class="fw-bold itemoff" id="charbonus">Character Bonuses:</span>
                     <div class="fs-4 itemoff" id="accountantcount"><i class="mdi mdi-account-tie"></i>: +<span
-                            id="accountantstat">0</span> <i class="mdi mdi-timer">3</i> </div>
-                    <div class="fs-4 itemoff" id="pyramid-schemecount"><i class="mdi mdi-triangle"></i>: +<span
-                            id="pyramid-schemestat">0</span> <i class="mdi mdi-timer">12</i>
-                    </div>
+                            id="accountantstat">0</span> <i class="mdi mdi-timer">2</i> </div>
                     <div class="fs-4 itemoff" id="pyramid-schemecount"><i class="mdi mdi-triangle"></i>: +<span
                             id="pyramid-schemestat">0</span> <i class="mdi mdi-timer">12</i>
                     </div>
@@ -51,7 +49,7 @@
                             class="mdi mdi-emoticon-devil text-danger"></i><span id="Beelzebubstat">????</span> <i
                             class="mdi mdi-timer">6.66</i>
                     </div>
-                    <div id="charstats" class="itemoff">Characters Generating <span id="totalgps"></span> Gold Per
+                    <div id="charstats" class="itemoff">Characters Generate <span id="totalgps"></span> Gold Per
                         Second
                     </div>
                 </div>
@@ -59,17 +57,16 @@
         </section>
         <!-- SECTION TOTAL & ALL STATS -->
         <section class="row mt-5 text-center text-light">
-            <h1>You have collected <span id="goldcount">0 </span> gold !!</h1>
+            <h2>Current Gold Count: <span id="goldcount">0 </span> !!</h2>
         </section>
         <!-- SECTION PLAYER(S) AND UPGRADES    -->
         <section class="row mt-5 justify-content-evenly pb-4">
             <div class="col-3 card">
                 <section class="row justify-content-evenly">
-                    <div class="col-5 fs-3">You <i class="fs-6"> lucky son of a gun, thats a never ending of gold!
-                            Thanks for playing</i>
+                    <div class="col-5 fs-3"> <span id="playername">You </span><i class="fs-6" id="playerflavor"></i>
                     </div>
-                    <div class="col-5">
-                        <img src="https://thiscatdoesnotexist.com" class="char-img img-fluid">
+                    <div class="col-5 mt-1">
+                        <span id="playericon"><img src="https://thiscatdoesnotexist.com" class="char-img img-fluid">
                     </div>
 
                     <div class="col-7 btn btn-warning mb-2" onclick="buyUpgrade('bucket')">
@@ -93,13 +90,15 @@
             </div>
 
             <div class="col-2 card itemoff" id="characcountantcard">
-                <section class="row justify-content-evenly">
-                    <div class="col-5 fs-3">Accountant</div>
+                <section class="row justify-content-evenly mt-1">
+                    <div class="col-5 fs-4">Accountants on duty: <br><i class="mdi mdi-account-tie"></i><span
+                            id="accountanttotal">1</span></div>
                     <div class="col-5">
                         <img src="https://media.lasvegasweekly.com/img/photos/2012/07/11/GQ_Bandit_WEB_t1200.jpg?a58a258a4dac404905303588401680fdf3ee23e4"
                             class="char-img img-fluid">
                     </div>
-                    <div class="col-8 fs-2">stats go here</div>
+                    <div class="col-8 fs-6"><i>I thought they were here for taxes, but i've only seen them grab gold</i>
+                    </div>
                     <div class="col-7 btn btn-warning mb-2" onclick="unlockCharacter('accountant')">Purchase another
                         Accountant | <span id="accountantupgrade"></span>
                         Gold</div>
@@ -120,12 +119,13 @@
 
             <div class="col-2 card itemoff" id="charpyramid-schemecard">
                 <section class="row justify-content-evenly">
-                    <div class="col-5 fs-3">Pyramid Scheme</div>
+                    <div class="col-5 fs-4">Pyramid-Schemes running: <br><i class="mdi mdi-triangle"></i><span
+                            id="pyramid-schemetotal"></span></div>
                     <div class="col-5">
                         <img src="https://study.com/cimages/multimages/16/pyramid-gb5c726dfd_6406686427392629431824.png"
                             class="char-img img-fluid">
                     </div>
-                    <div class="col-8 fs-2">stats go here</div>
+                    <div class="col-8 fs-6">"Hey grandma, I've got a great buisiness idea....."</div>
                     <div class="col-7 btn btn-warning mb-2" onclick="unlockCharacter('pyramid-scheme')">Start Another
                         Pyramid Scheme | <span id="pyramid-schemeupgrade"></span> Gold
                     </div>
@@ -142,20 +142,30 @@
 
             <div class="col-2 card itemoff" id="charBeelzebubcard">
                 <section class="row justify-content-evenly">
-                    <div class="col-5 fs-3">NAME </div>
-                    <div class="col-5">
-                        <img src="https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_2.625/c_scale,w_400/ncom/en_US/games/switch/d/dragon-sinker-switch/description-image"
-                            class="char-img img-fluid">
+
+                    <div class="col-12">
+                        <img src="https://horrornews.net/wp-content/uploads/2012/04/Beelzebub-demon-3.jpg"
+                            class="img-fluid">
                     </div>
-                    <div class="col-8 fs-2">stats go here</div>
-                    <div class="col-7 btn btn-warning mb-2">UPGRADE 1 BUTTON</div>
+                    <div class="col-7 btn btn-danger mb-2 itemoff" id="endworldbtn" onclick="endworld()">Summon Satan |
+                        100000</div>
             </div>
         </section>
         </div>
         </section>
-
-
     </main>
+    <footer id="hell" class="itemoff bg-hell container-fluid">
+        <section class="row text-center">
+            <h1 class="text-light mt-600">Hell has been unleashed on earth! You win!!!!!</h2>
+                <h2 class="text-light"> You have amassed a total of <span id="finalgold"></span> gold in your time
+                    playing</h3>
+                    <h5 class="text-light"> thanks for playing - Devin</h5>
+                    <img src="https://cdn.administrace.tv/2022/05/12/medium/09bebea8a4bd780bc4b8c0577a28ed8e.jpg" alt=""
+                        class="col-12 mt-600">
+                    <img src="https://acegif.com/wp-content/uploads/gifs/fire-57.gif" alt="" class="col-12 hell-flames">
+
+        </section>
+    </footer>
     <script src="app.js"></script>
 </body>
 

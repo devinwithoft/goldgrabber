@@ -17,4 +17,24 @@
     display: block;
 }
 
-<img src="https://iconsplace.com/wp-content/uploads/_icons/ffd700/256/png/coins-icon-6-256.png">
+.bg-hell {
+    background-image: url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f2e82d1a-c118-4892-8b4f-ec7ac9df3403/d6j5y72-2bef7552-7400-40e0-975f-8637752fd95b.jpg/v1/fill/w_1024,h_695,q_75,strp/nuclear_war_by_mckeesart_d6j5y72-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9Njk1IiwicGF0aCI6IlwvZlwvZjJlODJkMWEtYzExOC00ODkyLThiNGYtZWM3YWM5ZGYzNDAzXC9kNmo1eTcyLTJiZWY3NTUyLTc0MDAtNDBlMC05NzVmLTg2Mzc3NTJmZDk1Yi5qcGciLCJ3aWR0aCI6Ijw9MTAyNCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.W-2XKrpj-tbLSFnldcqClRRtIhvsCsH5SHKTGlrTnlQ);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.hell-flames {
+    transform: translateY(-1400px);
+}
+
+.mt-600 {
+    margin-top: 40px;
+}
+
+.bg-dungeon {
+    background-image: url(http://corwyn.wdfiles.com/local--files/deathtrap-dungeon/DUNGEON-1.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: none;
+
+}
