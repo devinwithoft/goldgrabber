@@ -104,7 +104,7 @@ function drawGold() {
     if (finalgold >= 100000) {
         document.getElementById('charBeelzebubbtn').innerHTML = `<section class="row">
         <div class="col-7 btn btn-danger" onclick="unlockCharacter('Beelzebub')">
-            <h5>Summon Beelzebub | 66666/h5>
+            <h5>Summon Beelzebub | 66666</h5>
             ?????????
         </div>
     </section>`}
